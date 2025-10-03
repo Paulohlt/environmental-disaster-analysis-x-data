@@ -135,5 +135,3 @@ Espera-se que os modelos consigam:
 Assim, o projeto reforça a importância da ciência de dados como ferramenta para o **monitoramento social em tempo real** e para apoiar a **gestão de emergências ambientais**.
 
 ---
-
-👉 Quer que eu já prepare esse texto em **README.md** formatado para você subir diretamente no GitHub?
