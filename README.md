@@ -1,137 +1,136 @@
-# environmental-disaster-analysis-x-data
-Análise de dados do X (antigo Twitter) para classificar publicações sobre desastres ambientais usando  Machine Learning.
+# PROJETO APLICADO II: PROJETO DE ANÁLISE DE TEXTO NA PLATAFORMA X SOBRE DESASTRES AMBIENTAIS
 
-## 👩‍💻 Autores
+Environmental Disaster Tweet Classification – PA II
 
-* **Karla Maria Ramos da Silva** – RA: 10730503
-* **Livya Kaiser de Albuquerque** – RA: 10433409
-* **Paulo Henrique Lasmar Teles** – RA: 10728776
-* **Rafael Hessel Sichetti** – RA: 10375395
+Classificação de tweets da plataforma X (antigo Twitter) relacionados a desastres ambientais, utilizando técnicas de Processamento de Linguagem Natural (PLN) e Aprendizado de Máquina.
 
----
+Projeto desenvolvido como parte da disciplina Projeto Aplicado II – Ciência de Dados, Mackenzie.
 
-# PROJETO APLICADO II:
+## Autores
+* **Karla Maria Ramos da Silva** – RA: 10730503  
+* **Livya Kaiser de Albuquerque** – RA: 10433409  
+* **Paulo Henrique Lasmar Teles** – RA: 10728776  
+* **Rafael Hessel Sichetti** – RA: 10375395  
 
-## PROJETO DE ANÁLISE DE TEXTO NA PLATAFORMA X SOBRE DESASTRES AMBIENTAIS
+## Objetivo do Projeto
 
----
+Desenvolver um pipeline de machine learning capaz de classificar automaticamente tweets como:
 
-## 🎯 Objetivo
+* **1** — relacionados a desastres ambientais, ou  
+* **0** — não relacionados  
 
-Investigar como os usuários da rede social **X (antigo Twitter)** se expressam em contextos de **desastres ambientais**, por meio da análise automática de tweets.
+utilizando o conjunto de dados Disaster Tweets (Kaggle).
 
-> **Hipóteses:**
->
-> * Tweets relacionados a desastres ambientais apresentam padrões linguísticos específicos que podem ser detectados automaticamente.
-> * Técnicas de ciência de dados e aprendizado de máquina podem apoiar o monitoramento de informações críticas em tempo real.
+O projeto inclui:
 
----
+* Pré-processamento de texto  
+* Vetorização com TF-IDF  
+* Treinamento de múltiplos modelos  
+* Avaliação e comparação de métricas  
+* Salvamento de artefatos (modelos, vetorizador, métricas)
 
-## 📊 Dados Utilizados
+## Estrutura do Repositório
 
-* **Sentiment140** (Stanford University) – 1,6 milhão de tweets rotulados em **positivo, negativo e neutro**.
-* **Disaster Tweets (Kaggle Competition)** – 10 mil tweets classificados como **relacionados** ou **não relacionados** a desastres ambientais.
+├── pipeline_disaster_tweets.py        
+├── notebook_disaster_pipeline.ipynb   
+├── outputs/                           
+├── requirements.txt                   
+└── README.md                          
 
-**Metadados principais:**
 
-* Texto do tweet
-* Polaridade ou rótulo (positivo/negativo/neutro; desastre/não desastre)
-* ID do tweet
-* Localização (quando disponível)
-* Palavras-chave e hashtags associadas
+## Ambiente Virtual
 
----
+Este projeto utiliza ambiente virtual para garantir isolamento e evitar conflitos de dependências.
 
-## 📁 Estrutura do Repositório
+**Criar ambiente virtual**
 
-```
-.
-├── dados/            # Conjunto de dados brutos e tratados
-├── notebooks/        # Análises em Jupyter Notebook
-├── scripts/          # Scripts auxiliares (pré-processamento e modelos)
-├── requirements.txt  # Bibliotecas necessárias
-└── README.md         # Documentação do projeto
-```
+python -m venv .venv
 
----
+**Ativar (Windows)**
 
-## 📌 Metodologia
+.venv\Scripts\activate
 
-1. **Coleta**: Uso das bases abertas *Sentiment140* e *Disaster Tweets*.
-2. **Tratamento**: Limpeza dos textos, remoção de stopwords, links, emojis e lematização.
-3. **Exploração**: Estatísticas descritivas, gráficos de distribuição e nuvens de palavras.
-4. **Modelagem**: Aplicação de algoritmos de aprendizado de máquina (Naive Bayes, Regressão Logística, SVM e Redes Neurais).
-5. **Avaliação**: Cálculo de métricas como acurácia, precisão, recall, F1-score e matriz de confusão.
 
----
+**Instalar dependências**
 
-## 🔧 Ambiente de Desenvolvimento
-
-Projeto desenvolvido em **Jupyter Notebook**, utilizando **Python 3.13**.
-
-**Bibliotecas principais:**
-
-* `pandas`, `numpy` – Manipulação de dados
-* `matplotlib`, `seaborn` – Visualização gráfica
-* `nltk`, `spacy` – Processamento de linguagem natural
-* `scikit-learn` – Modelos de aprendizado de máquina
-* `tensorflow`/`keras` – Redes neurais (opcional)
-
----
-
-## ⚙️ Como Executar
-
-1. Clone o repositório:
-
-```bash
-git clone https://github.com/usuario/projeto-x-desastres.git
-cd projeto-x-desastres
-```
-
-2. (Opcional) Crie um ambiente virtual:
-
-```bash
-python -m venv venv
-source venv/bin/activate  # Linux/macOS
-venv\Scripts\activate     # Windows
-```
-
-3. Instale as dependências:
-
-```bash
 pip install -r requirements.txt
-```
 
-4. Execute os notebooks:
 
-```bash
+##  Como Executar o Projeto
+
+Existem duas formas:
+
+### **1) Executar o Pipeline via Script (.py)**
+python pipeline_disaster_tweets.py --disaster_path train.csv --out_dir outputs
+
+
+Isso irá:
+
+* Carregar e pré-processar o dataset  
+* Vetorizar textos com TF-IDF  
+* Treinar Logistic Regression, Naive Bayes e SVC  
+* Gerar métricas e tabelas  
+* Salvar tudo em `outputs/`
+
+### **2) Executar o Notebook**
+
 jupyter notebook
-```
 
-Abra a pasta `notebooks/` e rode os arquivos `.ipynb`.
+Abra: notebook_disaster_pipeline.ipynb
 
----
 
-## 📚 Bibliotecas
+No notebook você encontra:
 
-* pandas
-* numpy
-* matplotlib
-* seaborn
-* nltk
-* spacy
-* scikit-learn
-* tensorflow / keras (opcional)
+* Análise exploratória (EDA)  
+* Distribuição das classes  
+* Treinamento dos modelos  
+* Visualizações (matriz de confusão, distribuição)  
+* Discussões e interpretações  
 
----
+## Resumo dos Resultados
 
-## 🧠 Conclusão Esperada
+Os três modelos apresentaram desempenho próximo, com acurácia entre **80% e 81%**.
 
-Espera-se que os modelos consigam:
+**Melhor modelo (F1-score):**
+* **Support Vector Classifier — F1 = 0.7595**
 
-* Classificar corretamente tweets relacionados a **desastres ambientais**, ajudando na detecção de informações críticas.
-* Identificar padrões de linguagem e sentimentos expressos pelos usuários em situações de crise.
+**Outros modelos avaliados:**
+* Regressão Logística — F1 = 0.7498  
+* Naive Bayes — F1 = 0.7472  
 
-Assim, o projeto reforça a importância da ciência de dados como ferramenta para o **monitoramento social em tempo real** e para apoiar a **gestão de emergências ambientais**.
+Os resultados completos estão no arquivo: outputs/model_summary.csv
 
----
+
+E as matrizes de confusão em:
+
+outputs/cm_logreg.png, 
+outputs/cm_nb.png, 
+outputs/cm_svc.png
+
+
+## Requisitos
+
+* Python 3.10+  
+* nltk  
+* pandas  
+* scikit-learn  
+* matplotlib  
+* numpy  
+
+(Instalados automaticamente via **requirements.txt**)
+
+## Conclusão Resumida
+
+O modelo **Support Vector Classifier (SVC)** apresentou o melhor equilíbrio entre precisão e revocação, tornando-se o mais adequado para a tarefa de identificar tweets realmente relacionados a desastres ambientais.
+
+O pipeline desenvolvido permite replicar facilmente o processo de treinamento, análise e geração de artefatos, facilitando futuras melhorias, como:
+
+* Técnicas de balanceamento  
+* Modelos baseados em transformadores  
+* Deploy em aplicações reais  
+
+
+
+
+
+
